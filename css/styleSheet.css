@@ -1,0 +1,300 @@
+h1 {
+  color: rgba(89, 6, 20, 0.468);
+  width: 100%;
+  text-align: center;
+}
+body {
+  background-color: rgb(134, 25, 38);
+  color: black;
+}
+/* ==========================================
+   1. CSS Variables & Global Styles (:root)
+   ================================---------- */
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --text: #1e293b;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --radius: 8px;
+  --space: 24px;
+}
+
+body {
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  margin: 0;
+  box-sizing: border-box;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+a {
+  color: var(--primary);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--space);
+}
+
+/* ==========================================
+2. Navigation = FLEXBOX
+   ================================---------- */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space);
+  padding: 14px var(--space);
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.site-header ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-header a:not(.logo) {
+  text-decoration: none;
+  color: var(--muted);
+  padding: 4px 0;
+}
+
+.site-header a:not(.logo):hover,
+.site-header a.active {
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
+}
+
+/* ==========================================
+3. Hero Section
+   ================================---------- */
+.hero {
+  padding: 64px 0 40px;
+}
+
+.hero p {
+  max-width: 55ch;
+  color: var(--muted);
+  font-size: 1.125rem;
+}
+
+.hero .actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+/* ==========================================
+4. Buttons Styles
+   ================================---------- */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: var(--primary);
+  border: 2px solid var(--primary);
+  border-radius: var(--radius);
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    border-color 0.15s;
+}
+
+.btn:hover:not(:disabled),
+.btn.is-hover {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+.btn:focus-visible {
+  outline: 3px solid #93b4f8;
+  outline-offset: 2px;
+}
+
+.btn:disabled {
+  background: #cbd5e1;
+  border-color: #cbd5e1;
+  color: #64748b;
+  cursor: not-allowed;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary);
+}
+
+.btn-outline:hover:not(:disabled) {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* ==========================================
+5. Cards & Grid Main Content
+   ================================---------- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+}
+
+.card h3 {
+  font-size: 1.25rem;
+}
+
+.card p {
+  color: var(--muted);
+}
+
+.card .btn {
+  margin-top: 4px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding-bottom: 48px;
+}
+
+.grid .wide {
+  grid-column: 1 / -1;
+}
+
+/* ==========================================
+6. Responsive Table & Components Helpers
+   ================================---------- */
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+table {
+  width: 100%;
+  min-width: 520px;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 12px 16px;
+  text-align: left;
+}
+
+th {
+  background: var(--primary);
+  color: #fff;
+  white-space: nowrap;
+}
+
+tbody tr:nth-child(even) {
+  background: var(--bg);
+}
+
+tbody tr:hover {
+  background: #e0e9fd;
+}
+
+.badge {
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: #dcfce7;
+  color: #166534;
+}
+
+.badge.off {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.section {
+  padding: 32px 0 8px;
+}
+
+.section > h2 {
+  margin-bottom: 16px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+
+.label {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+}
+
+.swatch {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.swatch i {
+  display: block;
+  height: 56px;
+}
+
+.swatch code {
+  display: block;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+}
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 24px 0;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* ==========================================
+7. Responsive Breakpoint (Mobile)
+   ================================---------- */
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
